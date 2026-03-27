@@ -2,290 +2,282 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Gaurav Surolia – Resume</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; font-size:13px; }
-  .page { max-width:900px; margin:30px auto; background:#fff; box-shadow:0 4px 24px rgba(0,0,0,0.12); border-radius:4px; overflow:hidden; }
+  body { font-family:'Segoe UI', Arial, sans-serif; background:#fff; color:#222; font-size:12px; }
+  a { color:inherit; text-decoration:none; }
 
   /* HEADER */
-  .header { background:linear-gradient(135deg,#1a3c5e 0%,#2563a8 100%); color:#fff; padding:32px 40px 28px; display:flex; justify-content:space-between; align-items:center; }
-  .header-left h1 { font-size:28px; font-weight:700; letter-spacing:1px; }
-  .header-left .title { color:#90bfff; font-size:13px; margin-top:4px; font-weight:500; letter-spacing:0.5px; }
-  .header-left .contacts { margin-top:12px; display:flex; flex-wrap:wrap; gap:14px; font-size:12px; color:#cde; }
-  .header-left .contacts span { display:flex; align-items:center; gap:5px; }
-  .avatar { width:72px; height:72px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:700; color:#2563a8; flex-shrink:0; }
+  .header { background:#1a3c5e; color:#fff; padding:16px 32px; }
+  .header-inner { width:100%; }
+  .header-name { font-size:26px; font-weight:700; letter-spacing:1px; }
+  .header-title { color:#90bfff; font-size:12px; margin-top:3px; }
+  .header-badge { display:inline-block; margin-top:7px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; font-size:11px; font-weight:600; padding:3px 12px; border-radius:20px; }
+  .header-contacts { margin-top:9px; font-size:11.5px; color:#b0ccee; }
+  .header-contacts span { margin-right:18px; }
+  .header-avatar { width:68px; height:68px; border-radius:50%; background:#fff; text-align:center; line-height:68px; font-size:24px; font-weight:700; color:#1a3c5e; float:right; margin-top:-4px; }
 
-  /* BODY */
-  .body { display:grid; grid-template-columns:1fr 260px; }
+  /* BODY TABLE */
+  .body-table { width:100%; border-collapse:collapse; }
+  .col-left { width:62%; padding:14px 20px 14px 28px; vertical-align:top; border-right:1px solid #e5e9f0; }
+  .col-right { width:38%; padding:14px 18px 14px 16px; vertical-align:top; background:#f8fafd; }
 
-  /* LEFT */
-  .left { padding:28px 30px; border-right:1px solid #eee; }
-  .right { padding:28px 22px; background:#f8fafd; }
-
-  .section { margin-bottom:24px; }
-  .section-title { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#2563a8; border-bottom:2px solid #2563a8; padding-bottom:4px; margin-bottom:12px; }
+  /* SECTION */
+  .section { margin-bottom:14px; }
+  .section-title { font-size:9.5px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#2563a8; border-bottom:2px solid #2563a8; padding-bottom:3px; margin-bottom:8px; }
 
   /* SUMMARY */
-  .summary p { line-height:1.7; color:#444; }
+  .summary-text { line-height:1.55; color:#444; }
 
-  /* EXPERIENCE */
-  .job { margin-bottom:18px; }
-  .job-header { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:4px; }
-  .job-title { font-weight:700; font-size:13.5px; color:#1a3c5e; }
-  .job-company { color:#2563a8; font-weight:600; font-size:12.5px; }
-  .job-date { font-size:11px; color:#888; white-space:nowrap; background:#eef3fb; padding:2px 8px; border-radius:10px; }
-  .job ul { margin-top:6px; padding-left:16px; }
-  .job ul li { margin-bottom:4px; line-height:1.6; color:#444; }
+  /* JOB */
+  .job { margin-bottom:8px; }
+  .job-top { width:100%; }
+  .job-title { font-weight:700; font-size:12.5px; color:#1a3c5e; }
+  .job-company { color:#2563a8; font-weight:600; font-size:11.5px; }
+  .job-date { font-size:10.5px; color:#888; background:#eef3fb; padding:1px 7px; border-radius:10px; white-space:nowrap; }
+  .job ul { margin-top:3px; padding-left:13px; }
+  .job ul li { margin-bottom:1px; line-height:1.45; color:#444; }
 
-  /* RIGHT COLUMN */
-  .skill-group { margin-bottom:14px; }
-  .skill-group-title { font-size:11px; font-weight:700; color:#555; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px; }
-  .tags { display:flex; flex-wrap:wrap; gap:5px; }
-  .tag { background:#e8f0fb; color:#1a3c5e; font-size:11px; padding:3px 9px; border-radius:12px; font-weight:500; }
+  /* SKILLS */
+  .skill-group { margin-bottom:8px; }
+  .skill-group-label { font-size:10px; font-weight:700; color:#555; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+  .tag { display:inline-block; background:#e8f0fb; color:#1a3c5e; font-size:10.5px; padding:1px 7px; border-radius:10px; font-weight:500; margin:1px 2px 1px 0; }
   .tag.dark { background:#1a3c5e; color:#fff; }
 
   /* PROJECTS */
-  .project { margin-bottom:12px; }
-  .project-name { font-weight:700; font-size:12.5px; color:#1a3c5e; }
-  .project-desc { font-size:11.5px; color:#555; line-height:1.5; margin-top:2px; }
+  .project { margin-bottom:7px; }
+  .project-name { font-weight:700; font-size:11.5px; color:#1a3c5e; }
+  .project-desc { font-size:11px; color:#555; line-height:1.4; margin-top:1px; }
 
   /* EDUCATION */
-  .edu-degree { font-weight:700; font-size:13px; color:#1a3c5e; }
-  .edu-school { color:#2563a8; font-size:12px; }
-  .edu-year { font-size:11px; color:#888; margin-top:2px; }
+  .edu-degree { font-weight:700; font-size:12.5px; color:#1a3c5e; }
+  .edu-school { color:#2563a8; font-size:11.5px; }
+  .edu-year { font-size:11px; color:#888; margin-top:1px; }
 
   /* AWARDS */
-  .award { display:flex; gap:8px; margin-bottom:9px; align-items:flex-start; }
-  .award-icon { font-size:14px; }
-  .award-text { font-size:12px; color:#444; line-height:1.5; }
-  .award-text strong { color:#1a3c5e; display:block; }
+  .award { margin-bottom:6px; }
+  .award-title { font-weight:700; font-size:11.5px; color:#1a3c5e; }
+  .award-desc { font-size:11px; color:#555; line-height:1.4; }
 
   /* PRINT */
   @media print {
+    .print-btn { display:none !important; }
     body { background:#fff; }
-    .page { box-shadow:none; margin:0; border-radius:0; }
-    .print-btn { display:none; }
   }
-
-  .print-btn { display:block; text-align:center; padding:12px; background:#f0f2f5; }
-  .print-btn button { background:#2563a8; color:#fff; border:none; padding:10px 28px; border-radius:6px; font-size:13px; cursor:pointer; font-weight:600; letter-spacing:0.5px; }
-  .print-btn button:hover { background:#1a3c5e; }
+  .print-btn { text-align:center; padding:12px; background:#f0f2f5; }
+  .print-btn button { background:#2563a8; color:#fff; border:none; padding:9px 26px; border-radius:6px; font-size:13px; cursor:pointer; font-weight:600; }
 </style>
 </head>
 <body>
 
-<div class="page">
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-left">
-      <h1>GAURAV SUROLIA</h1>
-      <div class="title">Senior Python Developer · Full-Stack · Data Engineer · AI Integrations</div>
-      <div class="contacts">
-        <span>📞 +91 7790819037</span>
-        <span>✉️ grvsurolia@gmail.com</span>
-        <span>📍 Jaipur, Rajasthan</span>
-      </div>
-    </div>
-    <div class="avatar">GS</div>
+<!-- HEADER -->
+<div class="header">
+  <div class="header-avatar">GS</div>
+  <div class="header-name">GAURAV SUROLIA</div>
+  <div class="header-title">Senior Python Developer &nbsp;·&nbsp; Full-Stack &nbsp;·&nbsp; Data Engineer &nbsp;·&nbsp; AI Integrations</div>
+  <div class="header-badge">🗓️ &nbsp;6 Years 3 Months of Professional Experience</div>
+  <div class="header-contacts">
+    <span>📞 +91 7790819037</span>
+    <span>✉️ grvsurolia@gmail.com</span>
+    <span>📍 Jaipur, Rajasthan</span>
   </div>
-
-  <div class="body">
-
-    <!-- LEFT COLUMN -->
-    <div class="left">
-
-      <!-- SUMMARY -->
-      <div class="section summary">
-        <div class="section-title">Professional Summary</div>
-        <p>Results-driven Senior Python Developer with <strong>6+ years</strong> of experience in full-stack development, data engineering, and AI-powered application development. Specialized in Django, Flask, REST APIs, and PySpark ETL pipelines. Proven track record of leading technical teams, architecting scalable cloud solutions, and integrating third-party APIs including ChatGPT, WhatsApp Cloud, and CRM platforms across healthcare, e-commerce, and enterprise domains.</p>
-      </div>
-
-      <!-- EXPERIENCE -->
-      <div class="section">
-        <div class="section-title">Experience</div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Sr. Software Engineer</div><div class="job-company">In Time Tech</div></div>
-            <div class="job-date">Dec 2024 – Present</div>
-          </div>
-          <ul>
-            <li>Manage team task allocation and progress tracking using <strong>Databricks Notebooks</strong> for data pipeline orchestration</li>
-            <li>Design and develop <strong>ETL processes using PySpark</strong> for large-scale data processing and analytics workflows</li>
-            <li>Maintain regular client communication for requirements gathering and sprint planning</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Software Engineer – Web</div><div class="job-company">KiwiTech</div></div>
-            <div class="job-date">Jun 2024 – Nov 2024</div>
-          </div>
-          <ul>
-            <li>Architected a full <strong>doctor-patient web portal</strong> using Django with appointment scheduling and patient records management</li>
-            <li>Implemented secure communication channels between healthcare providers and patients</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Python Developer</div><div class="job-company">Marktine Technology Solutions Pvt Ltd</div></div>
-            <div class="job-date">Mar 2023 – May 2024</div>
-          </div>
-          <ul>
-            <li>Built a full-featured <strong>job portal</strong> using Django and MongoDB with job matching and applicant tracking</li>
-            <li>Developed <strong>WhatsApp Chatbot</strong> using Cloud APIs and <strong>AI document summarization</strong> tool with ChatGPT/OpenAI integration</li>
-            <li>Built English learning application with interactive assessment features</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Technical Instructor</div><div class="job-company">Codedesk Training Center</div></div>
-            <div class="job-date">Aug 2022 – Feb 2023</div>
-          </div>
-          <ul>
-            <li>Designed curriculum and delivered courses in Python, Django, Flask, and JavaScript to 50+ students</li>
-            <li>Mentored students through full-stack development projects and code reviews</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Software Developer</div><div class="job-company">Makerobos Innovation Labs Pvt Ltd</div></div>
-            <div class="job-date">Jan 2022 – Jul 2022</div>
-          </div>
-          <ul>
-            <li>Developed AI-driven chatbots integrated with CRM and ticketing systems (Zoho, Freshdesk)</li>
-            <li>Implemented <strong>Facebook & Instagram Graph API</strong> integrations for social media automation</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">Solution Engineer</div><div class="job-company">Extern Labs</div></div>
-            <div class="job-date">Jul 2020 – Dec 2021</div>
-          </div>
-          <ul>
-            <li>Led a technical team of <strong>15+ engineers</strong>, delivering 8+ cross-domain projects on schedule</li>
-            <li>Architected scalable Python backends, conducted code reviews, and supported technical hiring</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <div><div class="job-title">PHP Developer</div><div class="job-company">Eshiksa Technology Service Pvt Ltd</div></div>
-            <div class="job-date">Jan 2020 – Jul 2020</div>
-          </div>
-          <ul>
-            <li>Built educational portals for schools and institutes using <strong>PHP Zend Framework</strong></li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- EDUCATION -->
-      <div class="section">
-        <div class="section-title">Education</div>
-        <div class="edu-degree">B.Tech – Computer Science</div>
-        <div class="edu-school">Vivekananda Institute of Technology, Jaipur</div>
-        <div class="edu-year">2015 – 2019</div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="right">
-
-      <!-- SKILLS -->
-      <div class="section">
-        <div class="section-title">Technical Skills</div>
-        <div class="skill-group">
-          <div class="skill-group-title">Languages</div>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">C/C++</span><span class="tag">HTML</span><span class="tag">CSS</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Frameworks</div>
-          <div class="tags">
-            <span class="tag">Django</span><span class="tag">Flask</span><span class="tag">DRF</span><span class="tag">PySpark</span><span class="tag">FastAPI</span><span class="tag">Zend</span><span class="tag">Tkinter</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Databases</div>
-          <div class="tags">
-            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Cloud & DevOps</div>
-          <div class="tags">
-            <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Databricks</span><span class="tag">WhatsApp API</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">AI & Automation</div>
-          <div class="tags">
-            <span class="tag dark">ChatGPT / OpenAI</span><span class="tag dark">WebRTC</span><span class="tag dark">Speech-to-Text</span><span class="tag dark">ETL Pipelines</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">CRM & Integrations</div>
-          <div class="tags">
-            <span class="tag">Salesforce</span><span class="tag">Zoho</span><span class="tag">Freshdesk</span><span class="tag">Magento</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECTS -->
-      <div class="section">
-        <div class="section-title">Key Projects</div>
-        <div class="project">
-          <div class="project-name">🔷 Databricks Auto-Completion System</div>
-          <div class="project-desc">Automated task execution system for Databricks, streamlining data team workflows.</div>
-        </div>
-        <div class="project">
-          <div class="project-name">🏥 Doctor-Patient Meetup Platform</div>
-          <div class="project-desc">Telemedicine portal with virtual consultations, scheduling & patient management.</div>
-        </div>
-        <div class="project">
-          <div class="project-name">🤖 CRM Chatbot Integration</div>
-          <div class="project-desc">Intelligent chatbot connecting Zoho, Freshdesk & Facebook/Instagram APIs.</div>
-        </div>
-        <div class="project">
-          <div class="project-name">🎙️ WebRTC Live Transcription</div>
-          <div class="project-desc">Real-time audio transcription for video calls using Google Cloud Speech-to-Text.</div>
-        </div>
-        <div class="project">
-          <div class="project-name">🌿 Plant Listing RESTful API</div>
-          <div class="project-desc">Django REST Framework + PostgreSQL API for a plant-sharing marketplace.</div>
-        </div>
-        <div class="project">
-          <div class="project-name">💰 Crowdfunding Portal</div>
-          <div class="project-desc">Django-based donation platform with campaign management and MySQL backend.</div>
-        </div>
-      </div>
-
-      <!-- AWARDS -->
-      <div class="section">
-        <div class="section-title">Awards</div>
-        <div class="award"><div class="award-icon">🏆</div><div class="award-text"><strong>Positive Attitude Award</strong>Recognized for exceptional team collaboration</div></div>
-        <div class="award"><div class="award-icon">⚡</div><div class="award-text"><strong>Fastest Code Debugger</strong>Fastest C++ debugging in competition</div></div>
-        <div class="award"><div class="award-icon">🎓</div><div class="award-text"><strong>Alumni Meet Organizer</strong>Selected for leadership & interpersonal skills</div></div>
-        <div class="award"><div class="award-icon">🥇</div><div class="award-text"><strong>Best Project Award</strong>Winner of best project & quiz competition</div></div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- PRINT BUTTON -->
-  <div class="print-btn">
-    <button onclick="window.print()">🖨️ Print / Save as PDF</button>
-  </div>
-
 </div>
+
+<!-- BODY -->
+<table class="body-table">
+<tr>
+
+<!-- LEFT COLUMN -->
+<td class="col-left">
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary-text">Results-driven Senior Python Developer with <strong>6+ years</strong> of experience in full-stack development, data engineering, and AI-powered application development. Specialized in Django, Flask, REST APIs, and PySpark ETL pipelines. Proven track record of leading technical teams, architecting scalable cloud solutions, and integrating third-party APIs including ChatGPT, WhatsApp Cloud, and CRM platforms across healthcare, e-commerce, and enterprise domains.</div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">Sr. Software Engineer</div><div class="job-company">In Time Tech</div></td>
+        <td align="right"><span class="job-date">Dec 2024 – Present</span></td>
+      </tr></table>
+      <ul>
+        <li>Develop <strong>ETL pipelines using PySpark</strong> and Databricks Notebooks for large-scale data processing and analytics</li>
+        <li>Build <strong>Django REST APIs</strong> to expose pipeline results to internal dashboards and client-facing applications</li>
+        <li>Automate <strong>web scraping of printer manufacturer websites</strong> using Selenium for product data extraction and monitoring</li>
+        <li>Integrate Django backend with <strong>Databricks and AWS</strong> for seamless data ingestion workflows</li>
+        <li>Manage team tasks, sprint planning, and regular client communication for requirement gathering</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">Software Engineer – Web</div><div class="job-company">KiwiTech</div></td>
+        <td align="right"><span class="job-date">Jun 2024 – Nov 2024</span></td>
+      </tr></table>
+      <ul>
+        <li>Architected a full <strong>doctor-patient web portal</strong> using Django with appointment scheduling and patient records management</li>
+        <li>Implemented secure communication channels between healthcare providers and patients</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">Python Developer</div><div class="job-company">Marktine Technology Solutions Pvt Ltd</div></td>
+        <td align="right"><span class="job-date">Mar 2023 – May 2024</span></td>
+      </tr></table>
+      <ul>
+        <li>Built a full-featured <strong>job portal</strong> using Django and MongoDB with job matching and applicant tracking</li>
+        <li>Developed <strong>WhatsApp Chatbot</strong> using Cloud APIs and <strong>AI document summarization</strong> tool with ChatGPT/OpenAI integration</li>
+        <li>Built English learning application with interactive assessment features</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">Technical Instructor</div><div class="job-company">Codedesk Training Center</div></td>
+        <td align="right"><span class="job-date">Aug 2022 – Feb 2023</span></td>
+      </tr></table>
+      <ul>
+        <li>Designed curriculum and delivered courses in Python, Django, Flask, and JavaScript to 50+ students</li>
+        <li>Mentored students through full-stack development projects and code reviews</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">Software Developer</div><div class="job-company">Makerobos Innovation Labs Pvt Ltd</div></td>
+        <td align="right"><span class="job-date">Jan 2022 – Jul 2022</span></td>
+      </tr></table>
+      <ul>
+        <li>Developed AI-driven chatbots integrated with CRM and ticketing systems (Zoho, Freshdesk)</li>
+        <li>Implemented <strong>Facebook & Instagram Graph API</strong> integrations for social media automation</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">Solution Engineer</div><div class="job-company">Extern Labs</div></td>
+        <td align="right"><span class="job-date">Jul 2020 – Dec 2021</span></td>
+      </tr></table>
+      <ul>
+        <li>Led a technical team of <strong>15+ engineers</strong>, delivering 8+ cross-domain projects on schedule</li>
+        <li>Architected scalable Python backends, conducted code reviews, and supported technical hiring</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <table class="job-top" cellpadding="0" cellspacing="0"><tr>
+        <td><div class="job-title">PHP Developer</div><div class="job-company">Eshiksa Technology Service Pvt Ltd</div></td>
+        <td align="right"><span class="job-date">Jan 2020 – Jul 2020</span></td>
+      </tr></table>
+      <ul>
+        <li>Built educational portals for schools and institutes using <strong>PHP Zend Framework</strong></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-degree">B.Tech – Computer Science</div>
+    <div class="edu-school">Vivekananda Institute of Technology, Jaipur</div>
+    <div class="edu-year">2015 – 2019</div>
+  </div>
+
+</td>
+
+<!-- RIGHT COLUMN -->
+<td class="col-right">
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Languages</div>
+      <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">C/C++</span><span class="tag">HTML</span><span class="tag">CSS</span>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Frameworks</div>
+      <span class="tag">Django</span><span class="tag">Flask</span><span class="tag">DRF</span><span class="tag">PySpark</span><span class="tag">FastAPI</span><span class="tag">Zend</span><span class="tag">Tkinter</span>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Databases</div>
+      <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">Cloud & DevOps</div>
+      <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Databricks</span><span class="tag">WhatsApp API</span>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">AI & Automation</div>
+      <span class="tag dark">ChatGPT / OpenAI</span><span class="tag dark">Selenium</span><span class="tag dark">WebRTC</span><span class="tag dark">Speech-to-Text</span><span class="tag dark">ETL Pipelines</span>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-label">CRM & Integrations</div>
+      <span class="tag">Salesforce</span><span class="tag">Zoho</span><span class="tag">Freshdesk</span><span class="tag">Magento</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Key Projects</div>
+
+    <div class="project">
+      <div class="project-name">🔷 Databricks Auto-Completion System</div>
+      <div class="project-desc">Automated task execution system for Databricks, streamlining data team workflows.</div>
+    </div>
+    <div class="project">
+      <div class="project-name">🏥 Doctor-Patient Meetup Platform</div>
+      <div class="project-desc">Telemedicine portal with virtual consultations, scheduling & patient management.</div>
+    </div>
+    <div class="project">
+      <div class="project-name">🤖 CRM Chatbot Integration</div>
+      <div class="project-desc">Intelligent chatbot connecting Zoho, Freshdesk & Facebook/Instagram APIs.</div>
+    </div>
+    <div class="project">
+      <div class="project-name">🎙️ WebRTC Live Transcription</div>
+      <div class="project-desc">Real-time audio transcription for video calls using Google Cloud Speech-to-Text.</div>
+    </div>
+    <div class="project">
+      <div class="project-name">🌿 Plant Listing RESTful API</div>
+      <div class="project-desc">Django REST Framework + PostgreSQL API for a plant-sharing marketplace.</div>
+    </div>
+    <div class="project">
+      <div class="project-name">💰 Crowdfunding Portal</div>
+      <div class="project-desc">Django-based donation platform with campaign management and MySQL backend.</div>
+    </div>
+  </div>
+
+  <!-- AWARDS -->
+  <div class="section">
+    <div class="section-title">Awards</div>
+    <div class="award"><div class="award-title">🏆 Positive Attitude Award</div><div class="award-desc">Recognized for exceptional team collaboration</div></div>
+    <div class="award"><div class="award-title">⚡ Fastest Code Debugger</div><div class="award-desc">Fastest C++ debugging in competition</div></div>
+    <div class="award"><div class="award-title">🎓 Alumni Meet Organizer</div><div class="award-desc">Selected for leadership & interpersonal skills</div></div>
+    <div class="award"><div class="award-title">🥇 Best Project Award</div><div class="award-desc">Winner of best project & quiz competition</div></div>
+  </div>
+
+</td>
+</tr>
+</table>
+
+<!-- PRINT BUTTON -->
+<div class="print-btn">
+  <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
+
 </body>
 </html>
